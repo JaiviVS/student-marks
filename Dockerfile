@@ -13,6 +13,6 @@ WORKDIR /app
 COPY backend/req.txt ./
 RUN pip install --no-cache-dir -r req.txt
 COPY backend/ ./
-COPY --from=frontend-build /app/frontend/build ./static
+COPY --from=frontend-build /app/frontend/dist ./static
 EXPOSE 8000
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
